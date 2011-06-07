@@ -35,7 +35,8 @@ Todos.todoListController = SC.ArrayController.create({
   // Creates a new todo with the passed title, then adds it
   // to the array.
   createTodo: function(title) {
-    Todos.store.createRecord(Todos.Todo, { title: title });
+    var record = Todos.store.createRecord(Todos.Todo, { title: title });
+    record.commitRecord();
   },
   
   // Calculated property based on @each.isDone

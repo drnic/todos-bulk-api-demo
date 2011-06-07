@@ -1,1 +1,3 @@
 config :all, :required => [:sproutcore, "sproutcore/core_foundation", "bulk_data_source"], :theme => "sproutcore/empty_theme"
+
+proxy "/todos", :to => "localhost:3000"
