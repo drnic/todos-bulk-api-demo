@@ -1,11 +1,12 @@
 Todos = SC.Application.create({
-  store: SC.Store.create().from(SC.Record.fixtures)
+  store: SC.Store.create().from('SC.BulkDataSource')
 });
 
 Todos.Todo = SC.Record.extend({
   title: SC.Record.attr(String),
   isDone: SC.Record.attr(Boolean, { defaultValue: NO })
 });
+Todos.Todo.resourceName = 'todo';
 
 Todos.CreateTodoView = SC.TextField.extend({
   insertNewline: function() {

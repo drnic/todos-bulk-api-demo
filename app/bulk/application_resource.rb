@@ -3,7 +3,7 @@ class ApplicationResource < Bulk::Resource
   # To do so, just uncomment the next line and set resources that should be
   # available in Bulk API:
   #
-  # resources :tasks, :projects
+  # resources :todos
 
 end
 
