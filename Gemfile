@@ -7,4 +7,4 @@ gem 'rails', '3.0.7'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'bulk_api'
+gem 'bulk_api', :git => 'https://github.com/drogus/bulk_api.git'
