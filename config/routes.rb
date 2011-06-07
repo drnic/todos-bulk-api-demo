@@ -1,4 +1,8 @@
 Todos::Application.routes.draw do
+  mount Bulk::Sproutcore.new => "/_sproutcore"
+
+  bulk_routes "/api/bulk"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
