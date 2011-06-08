@@ -2,6 +2,8 @@ Todos = SC.Application.create({
   store: SC.Store.create().from('SC.BulkDataSource')
 });
 
+Todos.store.commitRecordsAutomatically = YES;
+
 Todos.Todo = SC.Record.extend({
   title: SC.Record.attr(String),
   isDone: SC.Record.attr(Boolean, { defaultValue: NO })
@@ -36,7 +38,6 @@ Todos.todoListController = SC.ArrayController.create({
   // to the array.
   createTodo: function(title) {
     var record = Todos.store.createRecord(Todos.Todo, { title: title });
-    record.commitRecord();
   },
   
   // Calculated property based on @each.isDone
@@ -47,6 +48,7 @@ Todos.todoListController = SC.ArrayController.create({
   clearCompletedTodos: function() {
     this.filterProperty('isDone', true).forEach(function(item) {
       item.destroy();
+      item.commitRecord();
     });
   },
   
@@ -62,8 +64,12 @@ Todos.todoListController = SC.ArrayController.create({
 });
 
 Todos.MarkDoneView = SC.Checkbox.extend({
-  titleBinding: '.parentView.content.title',
-  valueBinding: '.parentView.content.isDone'
+  valueBinding: '.parentView.content.isDone',
+  title: function() {
+    return this.getPath('parentView.content.title') + 
+            ' [' + this.getPath('parentView.content').statusString() + ']';
+  }.property('.parentView.content.title', '.parentView.content.status').cacheable()
+  
 });
 
 Todos.StatsView = SC.TemplateView.extend({
