@@ -2,7 +2,7 @@ Todos = SC.Application.create({
   store: SC.Store.create().from('SC.BulkDataSource')
 });
 
-Todos.store.commitRecordsAutomatically = YES;
+Todos.store.commitRecordsAutomatically = NO;
 
 Todos.Todo = SC.Record.extend({
   title: SC.Record.attr(String),
@@ -17,6 +17,7 @@ Todos.CreateTodoView = SC.TextField.extend({
     if (value) {
       Todos.todoListController.createTodo(value);
       this.set('value', '');
+      Todos.store.commitRecords();
     }
   }
 });
@@ -49,6 +50,7 @@ Todos.todoListController = SC.ArrayController.create({
     this.filterProperty('isDone', true).forEach(function(item) {
       item.destroy();
     });
+    Todos.store.commitRecords();
   },
   
   allAreDone: function(key, value) {
