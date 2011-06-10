@@ -6,6 +6,8 @@ It provides SproutCore integration via a custom DataSource. As a result, a [Spro
 
 This is a demo application (the todo example from the [SproutCore Guides](guides.sproutcore.com/getting_started.html)) integrated with a Rails app. The Rails app has a single `Todo` model. The integration between SproutCore and Rails is via the `/api/bulk` route used by bulk_api.
 
+There is a [guide to building this application](http://sproutguides-drogus.strobeapp.com/rails.html "SproutCore Guides: Connect SproutCore with Ruby on Rails applications").
+
 ## Usage
 
     git clone git@github.com:drnic/todos-bulk-api-demo.git
