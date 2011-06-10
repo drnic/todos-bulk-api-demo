@@ -48,7 +48,6 @@ Todos.todoListController = SC.ArrayController.create({
   clearCompletedTodos: function() {
     this.filterProperty('isDone', true).forEach(function(item) {
       item.destroy();
-      item.commitRecord();
     });
   },
   
