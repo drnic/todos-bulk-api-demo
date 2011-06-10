@@ -10,6 +10,7 @@ This is a demo application (the todo example from the [SproutCore Guides](guides
 
     git clone git@github.com:drnic/todos-bulk-api-demo.git
     cd todos-bulk-api-demo
+    git submodule update --init
     bundle
     rake db:migrate
     rails s
