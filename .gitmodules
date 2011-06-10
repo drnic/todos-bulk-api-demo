@@ -1,0 +1,3 @@
+[submodule "app/sproutcore/frameworks/bulk_data_source"]
+	path = app/sproutcore/frameworks/bulk_data_source
+	url = git://github.com/drogus/bulk_data_source.git
