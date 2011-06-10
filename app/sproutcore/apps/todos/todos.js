@@ -6,7 +6,7 @@ Todos.store.commitRecordsAutomatically = YES;
 
 Todos.Todo = SC.Record.extend({
   title: SC.Record.attr(String),
-  isDone: SC.Record.attr(Boolean, { defaultValue: NO })
+  isDone: SC.Record.attr(Boolean, { defaultValue: NO, key: 'is_done' })
 });
 Todos.Todo.resourceName = 'todo';
 
