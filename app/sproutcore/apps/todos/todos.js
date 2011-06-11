@@ -1,5 +1,5 @@
 Todos = SC.Application.create({
-  store: SC.Store.create().from('SC.BulkDataSource')
+  store: SC.Store.create().from('BulkApi.BulkDataSource')
 });
 
 Todos.store.commitRecordsAutomatically = NO;
@@ -56,6 +56,7 @@ Todos.todoListController = SC.ArrayController.create({
   allAreDone: function(key, value) {
     if (value !== undefined) {
       this.setEach('isDone', value);
+      Todos.store.commitRecords();
       return value;
     } else {
       return this.get('length') && this.everyProperty('isDone', true);
